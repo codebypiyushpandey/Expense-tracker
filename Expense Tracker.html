@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+    .body-container{
+    border: 1.5px solid rgba(0, 0, 0, 0.416);
+    border-radius: 8px;
+    width: 50%;
+    max-width: 300px;
+    min-height: 570px;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 0px;
+    background-color: rgba(227, 226, 226, 0.11);
+}
+   
+   .body-container h3{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+   }
+   .body-container p{
+    font-size: 12px;
+    margin-top: 2px;
+    margin-left: 8px;
+    margin-bottom: 0px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+   }
+  
+   .New-Expense{
+    border: 1.4px solid rgba(0, 128, 0, 0.854);
+    background-color:rgba(227, 226, 226, 0.352) ;
+    border-radius: 8px;
+    height: 30%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px auto 0;
+    font-size: 15px;
+}
+    .New-Expense h5{
+    margin-left: 6px;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .Expense-Amount{
+      display: flex;
+      margin-top: 2px;
+      gap: 5px;
+    }
+    .Expense-Name{    
+     width: auto;
+     margin-left: 5px;
+    }
+    .Expense-Name input{
+    background-color: rgba(255, 253, 253, 0.509);
+    border: 1px solid  rgba(169, 168, 168, 0.744);
+    border-radius: 3px;
+    width: 90%;
+    text-transform:capitalize;
+    outline: none;
+    height: 20px;
+    }
+    .Expense-Name p{
+      margin-bottom: 3px;  
+
+      font-size: 11px;
+      margin-left: 2px;
+
+    }
+    .Amount{
+     width: auto;
+    }
+    .Amount input{
+    background-color: rgba(255, 253, 253, 0.509);
+   border: 1px solid  rgba(169, 168, 168, 0.744);
+    border-radius: 3px;
+     width: 90%;
+     outline: none;
+     height: 20px;
+    }
+    .Amount p{
+        margin-bottom: 3px;
+        margin-left: 2px;
+        font-size: 11px;
+    }
+    .category{
+      margin-top: 4px;
+    }
+    .category input{
+      background-color: rgba(255, 253, 253, 0.509);
+    border: 1px solid  rgba(169, 168, 168, 0.744);
+    border-radius: 3px;
+     margin-left: 5px;
+     width: 93.5%;
+    text-transform:capitalize;
+    outline: none;
+    height: 20px;
+      
+    }
+    .category p{
+      margin-bottom: 3px;
+      margin-left: 5px;
+      font-size: 11px;
+    }
+    .addBtn{
+      background-color: rgba(0, 128, 0, 0.854);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-top: 10px;
+      margin-left: 5px;
+      height: 30px;
+      width: 96.5%;
+      margin-bottom: 5px;
+    }
+   .recentExpenses{
+   border: 1.4px solid rgba(0, 128, 0, 0.854);
+    background-color:rgba(227, 226, 226, 0.352);
+    margin-top: 10px;
+    height: 250px;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+     .recentExpenses button{
+      height: 5%;
+      margin-top: 5px;
+      margin-left: 110px;
+      border: none;
+      background: none;
+      font-size: 12px;
+     }
+     .recentExpenses h5{
+      margin-top: 5px;
+      margin-left: 6px;
+     }
+     .recent{
+      display: flex;
+      height: 20px;
+     }
+     .amounts {
+     font-weight: bold;
+     }
+   .expenseList{
+    padding: 0;
+    margin: 8px 5px 0;
+    list-style: none;
+    max-height: 220px;
+    overflow-y: auto;
+}
+.expenseList::-webkit-scrollbar{
+  width: 5px;
+}
+.expenseList::-webkit-scrollbar-track{
+  background: transparent;
+}
+.expenseList::-webkit-scrollbar-thumb{
+  background: rgba(0, 128, 0, 0.5);
+  border-radius: 10px;
+}
+.expenseList::-webkit-scrollbar-thumb:hover{
+  background: rgba(0, 128, 0, 0.8);
+}
+.expenseList li{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 6px 8px;
+    margin-bottom: 3px;
+    border: 1px solid rgba(169, 168, 168, 0.744);
+    border-radius: 5px;
+    height: 25px;
+    text-transform: capitalize;
+}
+.expenseList li button{
+    margin-left: auto;
+    border: none;
+    background: none;
+    color: red;
+    font-size: large;
+    cursor: pointer;
+    margin-bottom: 30px;  
+}
+  .total-container{
+    display: flex;
+    height: 65px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background: rgba(0, 128, 0, 0.854);
+  }
+  .ExpenseCnt{
+   width: 50%;
+  }
+  .ExpenseCnt h2{
+    font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  margin-top: 8px;
+  color: white;
+  }
+  .ExpenseCnt p{
+    text-transform: capitalize;
+    text-decoration: underline;
+    margin-top: 5px;
+    font-size: 15px;
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .total-img{
+    width: 50%;
+    text-align: end;
+  }
+  .total-img img{
+    height: 80px;
+   position: relative;  
+   top: -10px;  
+  }
+</style>
+<body>
+    <div class="body-container">     
+     <h3>💰 Expense Tracker </h3>
+     <p>Track your spending</p>
+
+     <div class="total-container">
+      <div class="ExpenseCnt">
+      <p>Total Expense💸</p>
+      <h2 id="totalExpense">₹0</h2>
+      </div>  
+      <div class="total-img">
+        <img src="expense_logo_transparent.png" alt="logo">
+      </div>  
+     </div>
+
+     <div class="New-Expense">
+     <h5>Add New Expense </h5>
+
+     <div class="Expense-Amount">
+     <div class="Expense-Name">
+       <p>Expense Name</p>
+       <input id="expenseName" type="text" placeholder="e.g. Coffee, Bus">
+     </div>
+
+     <div class="Amount">
+         <p>Amount (₹)</p>
+       <input id="expenseAmount" type="number" placeholder="e.g. 150₹">
+     </div>
+     </div>
+     <div class="category">
+      <p>Category</p>
+     <input id="expenseCategory" type="text" placeholder="Select Category">
+     <button id="addBtn" class="addBtn">+ Add Expense</button>
+     </div>
+     </div>
+      <div class="recentExpenses">
+        <div class="recent">
+      <h5>Recent Expenses</h5>
+     </div>
+     <ul id="expenseList" class="expenseList">
+    </ul>
+     </div>
+
+    </div>
+    <script>
+      const addBtn =  document.getElementById("addBtn");
+      const expenseName = document.getElementById("expenseName");
+      const expenseAmount = document.getElementById("expenseAmount");
+      const expenseCategory = document.getElementById("expenseCategory");
+      const expenseList = document.getElementById("expenseList");
+      const totalExpense = document.getElementById("totalExpense");
+      //  const = document.getElementById("");
+     
+     let expenses = [];
+
+     const saveExpenses = localStorage.getItem("expenses");
+     if (saveExpenses){expenses = JSON.parse(saveExpenses);
+     };      
+     function renderExpenses(){
+
+     expenseList.innerHTML = "";
+      let total = 0;
+     expenses.forEach(function(expense){
+      total = total + expense.amount;
+     const li = document.createElement("li");
+
+    const names = document.createElement("span");
+    names.textContent = expense.name;
+
+    const values = document.createElement("span");
+    values.textContent = `₹${expense.amount}`;
+
+    const categorys = document.createElement("span"); 
+    categorys.textContent = expense.category;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "🗑";
+    
+    deleteBtn.addEventListener("click",function(event){
+      event.stopPropagation();
+       
+      expenses = expenses.filter(function(item){
+      return item.id !== expense.id;
+      });
+
+      localStorage.setItem("expenses", JSON.stringify(expenses)); 
+      renderExpenses();    
+      });
+
+     li.appendChild(names);
+     li.appendChild(values);
+     li.appendChild(categorys);
+     li.appendChild(deleteBtn);
+
+     expenseList.appendChild(li);
+    });
+    totalExpense.textContent= `₹${total}`;
+  }
+
+     addBtn.addEventListener("click",function(){
+      const nameVal = expenseName.value.trim();
+      const amountVal = Number(expenseAmount.value);
+      const categoryVal = expenseCategory.value.trim();
+      if(nameVal ===""){return;
+      };
+      if(amountVal <= 0){return;
+      };
+      if(categoryVal ===""){return;
+      };
+
+     const newExpense = {
+      id: Date.now(),
+      name: nameVal,
+      amount: amountVal,
+      category: categoryVal,
+     };
+     expenses.unshift(newExpense);
+
+     localStorage.setItem("expenses",JSON.stringify(expenses));
+     renderExpenses();
+
+      expenseAmount.value = "";
+      expenseCategory.value = "";
+      expenseName.value = "";
+    });
+  
+     expenseName.addEventListener("keydown",function(e){
+      if (e.key === "Enter"){
+        addBtn.click();
+      }
+     });
+     expenseCategory.addEventListener("keydown",function(e){
+      if (e.key === "Enter"){
+        addBtn.click();
+      }
+     });
+     expenseAmount.addEventListener("keydown",function(e){
+      if (e.key === "Enter"){
+        addBtn.click();
+      }
+     });
+    renderExpenses();
+     
+    </script>
+</body>
+</html>
