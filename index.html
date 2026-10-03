@@ -18,7 +18,7 @@
     .body-container{
     border: 1.5px solid rgba(0, 0, 0, 0.416);
     border-radius: 8px;
-    width: 50%;
+    width: 90%;
     max-width: 300px;
     min-height: 570px;
     height: auto;
@@ -63,6 +63,16 @@
       margin-top: 2px;
       gap: 5px;
     }
+    .Expense-Name,
+    .Amount{
+    flex: 1;
+    min-width: 0;
+    }
+    .Expense-Name input,
+   .Amount input{
+    width: 100%;
+    box-sizing: border-box;
+    }
     .Expense-Name{    
      width: auto;
      margin-left: 5px;
@@ -94,6 +104,11 @@
      outline: none;
      height: 20px;
     }
+    input,
+   select {
+    width: 100%;
+    box-sizing: border-box;
+   }
     .Amount p{
         margin-bottom: 3px;
         margin-left: 2px;
@@ -107,7 +122,8 @@
     border: 1px solid  rgba(169, 168, 168, 0.744);
     border-radius: 3px;
      margin-left: 5px;
-     width: 93.5%;
+      width: calc(100% - 10px);
+       box-sizing: border-box;
     text-transform:capitalize;
     outline: none;
     height: 20px;
